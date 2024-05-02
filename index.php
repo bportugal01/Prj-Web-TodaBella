@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="flex flex-col h-screen">
+    <div class="flex-grow">
+        <header>
+            <nav class="bg-white outline outline-offset-2 outline-rose-700">
+                <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+                    <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+                        <img src="assets/images/logo20.png" class="h-24" alt="Logo Toda Bella" />
+                    </a>
+                    <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-rose-500 rounded-lg md:hidden hover:bg-rose-100 focus:outline-none focus:ring-2 focus:ring-rose-200" aria-controls="navbar-default" aria-expanded="false">
+                        <span class="sr-only">Abrir Menu</span>
+                        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+                        </svg>
+                    </button>
+                    <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+                        <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-rose-100 rounded-lg bg-white-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white">
+                            <li>
+                                <a href="#home" class="block py-2 px-3 text-rose-700 text-lg font-bold rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-gray-400 md:p-0">Home</a>
+                            </li>
+                            <li>
+                                <a href="#beleza" class="block py-2 px-3 text-rose-700 text-lg font-bold rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-gray-400 md:p-0">Beleza</a>
+                            </li>
+                            <li>
+                                <a href="#produtos" class="block py-2 px-3 text-rose-700 text-lg font-bold rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-gray-400 md:p-0">Produtos</a>
+                            </li>
+                            <li>
+                                <a href="#historia" class="block py-2 px-3 text-rose-700 text-lg font-bold rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-gray-400 md:p-0">História</a>
+                            </li>
+                            <li>
+                                <a href="login.php" class="block py-2 px-3 text-rose-700 text-lg font-bold rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-gray-400 md:p-0">Login</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="bg-rose-50">
+                <div class="flex justify-center py-24 mx-6">
+                    <div class="block max-w-lg mx-auto p-6 bg-white border border-gray-200 rounded-lg shadow">
+                        <h5 class="mb-2 text-4xl font-bold tracking-tight text-rose-700 text-center">Bem-vindo à Toda Bella!<br>Descubra a nossa história</h5>
+                        <p class="text-base">Sua loja online exclusiva para produtos de alta qualidade e estilo.</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main>
+            <section id="beleza">
+                <div class="outline outline-2 outline-rose-700"></div>
+                <div class="md:px-32 px-5 py-10">
+                    <h5 class="mb-2 text-4xl font-bold tracking-tight text-rose-700 md:text-justify text-center">Beleza</h5>
+                    <h1 class="mb-2 text-base font-bold tracking-tight text-gray-400 md:text-justify text-center">Descubra a verdadeira essência da beleza ao realçar os traços que tornam <br> sua beleza única</h5>
+                </div>
+                <div class="grid grid-col-1 md:grid-cols-3 gap-4 md:px-32 px-5 pb-10">
+                    <div class="grid gap-4">
+                        <div>
+                            <img class="h-auto max-w-full rounded-lg" src="assets/images/beleza-um.png">
+                        </div>
+                        <div>
+                            <img class="h-auto max-w-full rounded-lg" src="assets/images/beleza-quatro.png">
+                        </div>
+                    </div>
+                    <div class="grid gap-4">
+                        <div>
+                            <img class="h-auto max-w-full rounded-lg" src="assets/images/beleza-cinco.png">
+                        </div>
+                        <div>
+                            <img class="h-auto max-w-full rounded-lg" src="assets/images/beleza-tres.png">
+                        </div>
+                    </div>
+                    <div class="grid gap-4">
+                        <div>
+                            <img class="h-auto max-w-full rounded-lg" src="assets/images/beleza-dois.png">
+                        </div>
+                        <div>
+                            <img class="h-auto max-w-full rounded-lg" src="assets/images/beleza-seis.png">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="produtos">
+                <div class="outline outline-2 outline-gray-200"></div>
+                <div class="md:px-32 px-5 py-10">
+                    <h5 class="mb-2 text-4xl font-bold tracking-tight text-rose-700 md:text-justify text-center">Produtos</h5>
+                    <h1 class="mb-2 text-base font-bold tracking-tight text-gray-400 md:text-justify text-center">Cuide da sua pele com produtos e cosméticos de alta qualidade</h1>
+                </div>  
+                <div class="grid md:grid-col-1 md:grid-cols-3 gap-4 md:px-32 px-5 pb-12">
+                    <div class="">
+                        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
+                            <a href="#">
+                                <img class="rounded-t-lg" src="assets/images/cosmeticos-tres.png" alt="" />
+                            </a>
+                            <div class="p-5 text-center">
+                                <a href="#">
+                                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center">Kit Sérum Facial Bella</h5>
+                                </a>
+                                <p class="mb-3 text-2xl font-bold text-gray-500 text-center">R$ 275,00</p>
+                                <a href="#" class="inline-flex items-center px-3 py-2 text-xl font-medium text-center text-white bg-rose-700 rounded-lg hover:bg-rose-800 focus:ring-4 focus:outline-none focus:ring-rose-300 mt-4">
+                                    Comprar
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="">
+                        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
+                            <a href="#">
+                                <img class="rounded-t-lg" src="assets/images/cosmeticos-dois.png" alt="" />
+                            </a>
+                            <div class="p-5 text-center">
+                                <a href="#">
+                                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Colônia Bella Edição Limitada</h5>
+                                </a>
+                                <p class="mb-3 text-2xl font-bold text-gray-500 text-center">R$ 488,00</p>
+                                <a href="#" class="inline-flex items-center px-3 py-2 text-xl font-medium text-center text-white bg-rose-700 rounded-lg hover:bg-rose-800 focus:ring-4 focus:outline-none focus:ring-rose-300 mt-4">
+                                    Comprar
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="">
+                        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
+                            <a href="#">
+                                <img class="rounded-t-lg" src="assets/images/cosmetico-um.png" alt="" />
+                            </a>
+                            <div class="p-5 text-center">
+                                <a href="#">
+                                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Kit Pincéis Bella Luxo</h5>
+                                </a>
+                                <p class="mb-3 text-2xl font-bold text-gray-500">R$ 199,00</p>
+                                <a href="#" class="inline-flex items-center px-3 py-2 text-xl font-medium text-center text-white bg-rose-700 rounded-lg hover:bg-rose-800 focus:ring-4 focus:outline-none focus:ring-rose-300 mt-4">
+                                    Comprar
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="historia">
+                <div class="outline outline-2 outline-gray-200"></div>
+                <div class="md:px-32 px-5 py-10">
+                    <div class="grid grid-col-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <h5 class="mb-2 text-4xl font-bold tracking-tight text-rose-700 md:text-justify text-center">Conheça nossa história</h5>
+                            <p class="text-base font-bold text-gray-400 text-justify pt-6">
+                                Nascida há muitos anos em uma rua movimentada da cidade, "Toda Bella" é mais do que uma simples loja de beleza. 
+                                Fundada por Isabella, uma apaixonada pelo universo da beleza, a loja foi criada com o objetivo de oferecer produtos 
+                                de alta qualidade que realcem a beleza natural de cada pessoa. O que começou como uma modesta boutique de beleza 
+                                rapidamente se transformou em um local de referência para os amantes de estética e cuidados pessoais.
+                            </p>
+                        </div>
+                        <div>
+                            <img class="h-auto max-w-full rounded-lg" src="assets/images/logo20.png" alt="">    
+                        </div>
+                    </div>
+                </div>    
+                <div class="outline outline-2 outline-gray-200"></div>
+                <h5 class="mb-2 text-4xl font-bold tracking-tight text-rose-700 text-center py-16 px-5">A Toda Bella cuida dos detalhes da sua autoestima!</h5>
+            </section>
+        </main>
+    </div>    
+    <footer class="bg-rose-700 shadow">
+        <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+            <hr class="my-6 border-gray-200 sm:mx-auto lg:my-8" />
+            <span class="block text-base text-white text-center">Copyright © 2024 | Todos os direitos reservados - Toda Bella</span>
+        </div>
+    </footer>
+      
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="assets/js/menu.js"></script>       
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultar Veículo</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="flex flex-col h-screen">
+    <div class="flex-grow bg-rose-50">
+        <header>
+            <nav class="bg-white outline outline-offset-2 outline-rose-700">
+                <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+                    <a href="gerenciamento.php" class="flex items-center space-x-3 rtl:space-x-reverse">
+                        <img src="assets/images/logo20.png" class="h-24" alt="Logo Toda Bella" />
+                    </a>
+                    <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-rose-500 rounded-lg md:hidden hover:bg-rose-100 focus:outline-none focus:ring-2 focus:ring-rose-200" aria-controls="navbar-default" aria-expanded="false">
+                        <span class="sr-only">Abrir Menu</span>
+                        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+                        </svg>
+                    </button>
+                    <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+                        <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-rose-100 rounded-lg bg-white md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white">
+                            <li>
+                                <a href="gerenciamento.php" class="block py-2 px-3 text-rose-700 text-lg font-bold rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-gray-400 md:p-0">Home</a>
+                            </li>
+                            <li>
+                                <a href="select.php" class="block py-2 px-3 text-rose-700 text-lg font-bold rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-gray-400 md:p-0">Pesquisas Detalhadas</a>
+                            </li>
+                            <li>
+                                <a href="sair.php" class="block py-2 px-3 text-rose-700 text-lg font-bold rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-gray-400 md:p-0">Sair</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>  
+            </nav>
+            <main class="pb-12">
+                <?php
+                // Agora, após o possível cadastro, lista os pontos estratégicos
+                    include_once 'DAO/VeiculoDAO.php';
+                    include_once 'DAO/UtilizacaoVeiculoDAO.php';
+                    $Veiculos = VeiculoDAO::listarVeiculos();
+                    $UtilizacaoVeiculos = UtilizacaoVeiculoDAO::listarUtilizacoesVeiculo();
+                ?>   
+
+                <div class="relative overflow-x-auto sm:rounded-lg px-5 md:px-40 pt-20">
+                    <h5 class="mb-2 text-3xl font-bold tracking-tight text-rose-700 text-left">Consulta de Veículos</h5>
+                    <table class="w-full text-base text-center rtl:text-right text-gray-900 p-5 border border-rose-700">
+                        <thead class="text-base text-white uppercase bg-rose-700">
+                            <tr>  
+                                <th scope="col" class="px-6 py-3">
+                                    Código
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Placa
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Tipo
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Modelo
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-rose-800">  
+                            <?php foreach ($Veiculos as $Veiculo): ?>
+                                <tr>
+                                    <td class="px-6 py-4 bg-rose-200" data-label="Código do Veiculo">
+                                        <?= $Veiculo['CodigoVeiculo']; ?>
+                                    </td>
+                                    <td class="px-6 py-4" data-label="Placa do Veiculp">
+                                        <?= $Veiculo['PlacaVeiculo']; ?>
+                                    </td>
+                                    <td class="px-6 py-4 bg-rose-200" data-label="Tipo do Veiculo">
+                                        <?= $Veiculo['TipoVeiculo']; ?>
+                                    </td>
+                                    <td class="px-6 py-4" data-label="Modelo do Veiculo">
+                                        <?= $Veiculo['ModeloVeiculo']; ?>
+                                    </td>             
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                    <h5 class="mb-2 text-3xl font-bold tracking-tight text-rose-700 text-left pt-20">Consulta de Utilização de Veículo</h5>
+                    <table class="w-full text-base text-center rtl:text-right text-gray-900 p-5 border border-rose-700">
+                        <thead class="text-base text-white uppercase bg-rose-700">
+                            <tr>  
+                                <th scope="col" class="px-6 py-3">
+                                    Código do Veículo
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Código do Vendedor
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Data de Utilização
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-rose-800">  
+                            <?php foreach ($UtilizacaoVeiculos as $UtilizacaoVeiculo): ?>
+                                <tr>
+                                    <td class="px-6 py-4 bg-rose-200" data-label="Codigo do Veiculo">
+                                        <?= $UtilizacaoVeiculo['CodigoVeiculo']; ?>
+                                    </td>
+                                    <td class="px-6 py-4" data-label="Codigo do Vendedor">
+                                        <?= $UtilizacaoVeiculo['CodigoVendedor']; ?>
+                                    </td>
+                                    <td class="px-6 py-4 bg-rose-200" data-label="Data de Utilização">
+                                        <?= $UtilizacaoVeiculo['DataUtilizacao']; ?>
+                                    </td>    
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>    
+            </main>
+        </header>
+    </div>                            
+    <footer class="bg-rose-700 shadow">
+        <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+            <hr class="my-6 border-gray-200 sm:mx-auto lg:my-8" />
+            <span class="block text-base text-white text-center">Copyright © 2024 | Todos os direitos reservados - Toda Bella</span>
+        </div>
+    </footer>
+    
+    <script src="https://cdn.tailwindcss.com"></script> 
+    <script src="assets/js/menu.js"></script>     
+</body>
+</html>
