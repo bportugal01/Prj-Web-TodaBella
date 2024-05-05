@@ -3,6 +3,8 @@
     "tailwindcss": "^3.4.3"
   },
   "dependencies": {
+    "express": "^4.19.2",
+    "express-handlebars": "^7.1.2",
     "handlebars": "^4.7.8"
   }
 }
