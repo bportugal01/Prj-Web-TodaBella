@@ -10,17 +10,14 @@ var handlebars = require('express-handlebars').engine
 var post = require("./models/post")
 
 
-
-// set morgan to log info about our requests for development use.
 app.use(morgan('dev'));
 
-// initialize body-parser to parse incoming parameters requests to req.body
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// initialize cookie-parser to allow us access the cookies stored in the browser. 
 app.use(cookieParser());
 
-// initialize express-session to allow us track the logged-in user across sessions.
+app.use(express.static('assets'))
+
 app.use(session({
     key: 'user_sid',
     secret: 'somerandonstuffs',
@@ -31,7 +28,6 @@ app.use(session({
     }
 }));
 
-// handle bars config
 app.engine('handlebars', handlebars({ defaultLayout: 'layout' }))
 app.set('view engine', 'handlebars')
 
@@ -39,8 +35,6 @@ app.set("view engine", "handlebars")
 app.use(bodyParser.json())
 app.use(cookieParser());
 
-// This middleware will check if user's cookie is still saved in browser and user is not set, then automatically log the user out.
-// This usually happens when you stop your express server after login, your cookie still remains saved in the browser.
 app.use((req, res, next) => {
     if (req.cookies.user_sid && !req.session.user) {
         res.clearCookie('user_sid');        
@@ -50,7 +44,6 @@ app.use((req, res, next) => {
 
 var hbsContent = {userName: '', loggedin: false, title: "You are not logged in today", body: "Hello World"}; 
 
-// middleware function to check for logged-in users
 var sessionChecker = (req, res, next) => {
     if (req.session.user && req.cookies.user_sid) {
 		res.redirect('/gerenciamento');
@@ -60,36 +53,10 @@ var sessionChecker = (req, res, next) => {
 };
 
 
-// route for Home-Page
 app.get('/', sessionChecker, (req, res) => {
     res.render('index');
 });
 
-
-// route for user signup
-app.route('/signup')
-    //.get(sessionChecker, (req, res) => {
-    .get((req, res) => {
-        //res.sendFile(__dirname + '/public/signup.html');
-        res.render('signup', hbsContent);
-    })
-    .post((req, res) => {
-        User.create({
-            username: req.body.username,
-            email: req.body.email,
-            password: req.body.password
-        })
-        .then(user => {
-            req.session.user = user.dataValues;
-            res.redirect('/gerenciamento');
-        })
-        .catch(error => {
-            res.redirect('/signup');
-        });
-    });
-
-
-// route for user Login
 app.route('/login')
     .get(sessionChecker, (req, res) => {
         res.render('login/login', hbsContent);
@@ -111,7 +78,6 @@ app.route('/login')
 });
 
 
-// route for user's dashboard
 app.get('/gerenciamento', (req, res) => {
     if (req.session.user && req.cookies.user_sid) {
 		hbsContent.loggedin = true; 
@@ -124,7 +90,6 @@ app.get('/gerenciamento', (req, res) => {
     }
 });
 
-// route for user logout
 app.get('/logout', (req, res) => {
     if (req.session.user && req.cookies.user_sid) {
 		hbsContent.loggedin = false; 
@@ -136,12 +101,6 @@ app.get('/logout', (req, res) => {
         res.redirect('/login');
     }
 });
-
-
-// route for handling 404 requests(unavailable routes)
-/*app.use(function (req, res, next) {
-  res.status(404).send("Rota inexistente!")
-});*/
 
 /*PRODUTO*/
 app.get('/cadastro_Produto', (req, res) => {
@@ -420,11 +379,6 @@ app.post('/cadastro_UtilizacaoVeiculo', function(req, res){
     })
 })
 
-app.get('/editar_UtilizacaoVeiculo', function (req, res) {
-    res.render('editar_UtilizacaoVeiculo');
-});
-
-
 /*REGIÃO PONTO*/
 app.get('/cadastro_Regiao_Ponto', function (req, res) {
     res.render('regiao/cadastro_Regiao_Ponto');
@@ -503,10 +457,6 @@ app.post('/cadastro_itemNotaFiscal', function (req, res) {
     }).catch(function(erro){
         res.send("Erro ao cadastrar cliente!" + erro)
     })
-});
-
-app.get('/editar_itemNotaFiscal', function (req, res) {
-    res.render('editar_itemNotaFiscal');
 });
 
 /*NOTA FISCAL*/
